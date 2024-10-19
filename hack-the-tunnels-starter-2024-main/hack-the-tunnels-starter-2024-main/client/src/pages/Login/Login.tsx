@@ -7,7 +7,7 @@ function Login() {
   const [message, setMessage] = useState(null);
   const { login } = useAccountContext();
 
-  const attemptLogin = async () => {
+  const attemptLogin = async () => { //test
     try {
       const message = await login("admin@email.com", "password");
       setMessage(message);
