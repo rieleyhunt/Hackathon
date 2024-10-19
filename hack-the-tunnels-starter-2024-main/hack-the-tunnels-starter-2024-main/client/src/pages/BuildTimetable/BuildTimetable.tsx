@@ -43,8 +43,10 @@ function BuildTimetable() {
 
   return (
     <Layout title={"My Course Worksheet"}>
+      
       <div className="BuildTimetable">
         <Section title="Search">
+          
           <SearchSection onSearch={fetchScheduledEvents} />
         </Section>
         {scheduledEvents.length > 0 && (

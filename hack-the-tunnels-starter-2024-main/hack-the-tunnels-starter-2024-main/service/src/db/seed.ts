@@ -63,6 +63,7 @@ const seedCentralData = async () => {
         data: {
           crn: event.crn,
           section: event.section,
+          maxregistration: event.maxregistration,
           term: event.term,
           credit: event.credit,
           type: event.type,

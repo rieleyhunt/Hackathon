@@ -14,14 +14,15 @@ export const createTimetable = async (
     return Err(new Error("Account not found"));
   }
  
-  const days  = await prisma.timetable.findMany({
-    where:{
-      id: Number(scheduledEventIds)
-      
-    }
-  })
+  const events = await prisma.scheduledEvent.findMany({
+    where: {
+      id: {
+        in: scheduledEventIds.map((id) => parseInt(id)),
+      },
+    },
+  });
 
-  console.log(days);
+  console.log(events);
   const timetable = await prisma.timetable.create({
     data: {
       name,

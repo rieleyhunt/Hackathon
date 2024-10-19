@@ -15,7 +15,7 @@ CREATE TABLE "ScheduledEvent" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "crn" TEXT NOT NULL,
     "section" TEXT NOT NULL,
-    "maxregistration" INTEGER
+    "maxregistration" INTEGER NOT NULL,
     "instructor" TEXT NOT NULL,
     "credit" TEXT NOT NULL,
     "type" TEXT NOT NULL,

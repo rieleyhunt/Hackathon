@@ -2,6 +2,7 @@ export interface ScheduledEvent {
   id: number;
   crn: string;
   section: string;
+  maxregistration: number;
   instructor: string;
   credit: string;
   type: string;
@@ -43,6 +44,7 @@ const formatScheduledEvents = (events: any[]): ScheduledEvent[] => {
       id: event.id,
       crn: event.crn,
       section: event.section,
+      maxregistration: event.maxregistration,
       instructor: event.instructor,
       credit: event.credit,
       type: event.type,
