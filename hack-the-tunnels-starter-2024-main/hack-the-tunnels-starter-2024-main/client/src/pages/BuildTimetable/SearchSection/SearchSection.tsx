@@ -1,13 +1,18 @@
 import "./SearchSection.style.scss";
 
 interface SearchSectionProps {
-  onSearch: () => void;
+  onSearch: () => {
+    
+  };
 }
 function SearchSection({ onSearch }: SearchSectionProps) {
   return (
     <div className="SearchSection">
-      <input type="search" id="csearch" name="coursesearch"></input>
-      <button onClick={() => onSearch()}>Search</button>
+      <form action="/scheduledEvents" method="POST">  
+      <input type="search" name="course" placeholder="course search"></input>
+      <input type="submit" value="Search" />
+      {/*<button onClick={() => onSearch()}>Search</button>*/}
+      </form>
     </div>
   );
 }
