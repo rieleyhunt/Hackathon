@@ -13,6 +13,18 @@ export const createTimetable = async (
   if (account === null) {
     return Err(new Error("Account not found"));
   }
+  const test = await prisma.Timetable.findUnique({
+    where: {
+      timetableEvents:{
+        
+      }
+    },
+  })
+  const sEvent  = await prisma.timetable.findUnique({
+    where: {
+      id:
+    },
+  })
 
   const timetable = await prisma.timetable.create({
     data: {
