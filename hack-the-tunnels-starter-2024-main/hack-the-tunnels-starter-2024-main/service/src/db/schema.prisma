@@ -26,6 +26,7 @@ model ScheduledEvent {
   id                                 Int              @id @default(autoincrement())
   crn                                String           @unique
   section                            String
+  maxregistration                    Int
   instructor                         String
   credit                             String
   type                               String
