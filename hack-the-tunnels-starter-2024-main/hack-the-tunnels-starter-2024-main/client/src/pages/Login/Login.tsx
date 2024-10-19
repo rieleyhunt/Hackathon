@@ -4,25 +4,15 @@ import { Base as Layout } from "@/layouts";
 import "./Login.style.scss";
 
 function Login() {
-  const [email, setEmail] = useState(""); // Store email input
-  const [password, setPassword] = useState(""); // Store password input
-  const [message, setMessage] = useState(null); // Store error/success message
-
+  const [message, setMessage] = useState(null);
   const { login } = useAccountContext();
-  const navigate = useNavigate(); 
 
   const attemptLogin = async () => {
     try {
-      const result = await login(email, password); // Use custom inputs
-      if (result === "Login successful") {
-        setMessage(null); // Clear any previous message
-        navigate("/dashboard"); // Navigate to dashboard on success
-      } else {
-        setMessage("Invalid email or password. Please try again."); // Error message
-      }
+      const message = await login("admin@email.com", "password");
+      setMessage(message);
     } catch (error) {
-      console.error("Error during login:", error);
-      setMessage("An unexpected error occurred.");
+      console.log(error);
     }
   };
 
