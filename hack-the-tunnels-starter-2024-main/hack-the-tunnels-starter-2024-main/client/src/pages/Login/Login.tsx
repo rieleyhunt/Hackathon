@@ -4,15 +4,25 @@ import { Base as Layout } from "@/layouts";
 import "./Login.style.scss";
 
 function Login() {
-  const [message, setMessage] = useState(null);
+  const [email, setEmail] = useState(""); // Store email input
+  const [password, setPassword] = useState(""); // Store password input
+  const [message, setMessage] = useState(null); // Store error/success message
+
   const { login } = useAccountContext();
+  const navigate = useNavigate(); 
 
   const attemptLogin = async () => {
     try {
-      const message = await login("admin@email.com", "password");
-      setMessage(message);
+      const result = await login(email, password); // Use custom inputs
+      if (result === "Login successful") {
+        setMessage(null); // Clear any previous message
+        navigate("/dashboard"); // Navigate to dashboard on success
+      } else {
+        setMessage("Invalid email or password. Please try again."); // Error message
+      }
     } catch (error) {
-      console.log(error);
+      console.error("Error during login:", error);
+      setMessage("An unexpected error occurred.");
     }
   };
 
@@ -23,7 +33,7 @@ function Login() {
         <div className="Login__panel__content">
           <img src="/carleton_logo_black.png"></img>
           <div className="Login__panel__content__message">
-            <div>Welcome to the Carleton SSO Federated Portal.</div>
+            <div>Welcome to the Carleton SSO çawdawdwd</div>
             <div>
               Enter your{" "}
               <a href="https://myone.carleton.ca" target="blank">
