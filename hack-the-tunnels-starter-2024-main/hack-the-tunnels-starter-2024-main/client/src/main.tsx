@@ -14,13 +14,14 @@ import {
 import { AccountProvider } from "./context";
 import "./index.scss";
 
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Menu />,
   },
   {
-    path: "/login",
+    path: "/login", 
     element: <Login />,
   },
   {
@@ -40,10 +41,11 @@ const router = createBrowserRouter([
     element: <Workshop />,
   },
   {
-    path: "*",
+    path: "*", 
     element: <NotFound />,
   },
 ]);
+
 
 export function Root() {
   const [cookie] = useCookies(["jwt"]);
@@ -55,10 +57,11 @@ export function Root() {
   );
 }
 
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <CookiesProvider>
       <Root />
     </CookiesProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 );
